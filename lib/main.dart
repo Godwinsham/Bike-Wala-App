@@ -1,5 +1,5 @@
 
-import 'package:bikewalafinal/screens/services/service_screen.dart';
+import 'package:bikewalafinal/login%20and%20signup/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
        accentColor: kSecondaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Servicescreen()
+      home: LoginPage()
     );
   }
 }

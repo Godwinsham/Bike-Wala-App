@@ -28,6 +28,5 @@ Repair(
     image: "assets/images/Wash.png",
     offers: (''),
     description: ('Airwash')
-    ),
-
+    )
  ];
