@@ -7,13 +7,20 @@ import 'Liste.dart';
 import 'Servicecode.dart';
 import 'hello.dart';
 
+
+
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
+
+
 class _BodyState extends State<Body> {
   get z => null;
+ 
+
+  
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,27 +46,30 @@ class _BodyState extends State<Body> {
                   repair: repairs[index],
                 ),
               ),
-              SizedBox(height: kDefaultPadding / 10),
-              MaterialButton(
-                padding: EdgeInsets.all(8.0),
-                textColor: Colors.white,
-                splashColor: Colors.greenAccent,
-                elevation: 8.0,
-                child: Container(
-                  child: new Positioned(
-                    bottom: 50,
-                    child: Text("SIGN OUT"),
-                  ),
-                ),
-                // ),
-                onPressed: () {
+              SizedBox(height: kDefaultPadding / 15),
+             Padding(
+  padding: EdgeInsets.only(left: 60.0, right: 0.0,top: 550),
+  // ignore: missing_required_param
+  child: RaisedButton(
+    hoverColor: kBackgroundColor,
+    textColor: Colors.white,
+    color: kTextLightColor.withOpacity(0.5),
+    splashColor: Colors.green,
+    child: Text("Long Press To Submit Your Details"),
+         onLongPress: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => FinalPage(),
+                        
                       ));
-                },
-              ),
+    new RoundedRectangleBorder(
+     borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(0.5),
+                      topRight: Radius.circular(40),
+                    ));
+          }) ),
+            
             ]),
           ),
         ]));

@@ -90,7 +90,7 @@ class _ServiceCodeState extends State<ServiceCode> {
                   height: 90,
                   width: 200,
                   child: Column(
-                    children: [
+                    children: [ 
                       CheckboxGroup(labels: [widget.repair.offers])
                     ],
                   ),
