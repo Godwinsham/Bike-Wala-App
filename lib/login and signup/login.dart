@@ -2,10 +2,17 @@ import 'package:bikewalafinal/login%20and%20signup/signup.dart';
 import 'package:bikewalafinal/screens/services/service_screen.dart';
 import 'package:flutter/material.dart';
 
-
 import 'FadeAnimation.dart';
+import 'auth.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String email, password;
+  AuthService _authService = new AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +67,6 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Column(
-                      
                       children: <Widget>[
                         FadeAnimation(1.2, makeInput(label: "Email")),
                         FadeAnimation(1.3,
@@ -85,12 +91,27 @@ class LoginPage extends StatelessWidget {
                           child: MaterialButton(
                             minWidth: double.infinity,
                             height: 60,
-                            onPressed: () {
-                                 Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Servicescreen(),
-                      ));
+                            onPressed: () async { /* return http.post(
+    'https://jsonplaceholder.typicode.com/albums',
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'title': title,
+    }),
+  ); */
+                              await _authService
+                                  .signInEmailAndPass(email, password)
+                                  .then((user) async {
+                                if (user != null) {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Servicescreen()));
+                                }
+                              });
+                             
                             },
                             color: Colors.orangeAccent,
                             elevation: 0,
@@ -111,17 +132,14 @@ class LoginPage extends StatelessWidget {
                         children: <Widget>[
                           Text("Don't have an account?"),
                           FlatButton(
-                            child:Text("Sign up"),
-                             
-                            onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignupPage(),
-                        
-                      ));
-                          
-                             } )
+                              child: Text("Sign up"),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignupPage(),
+                                    ));
+                              })
                         ],
                       ))
                 ],
@@ -145,7 +163,16 @@ class LoginPage extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        TextField(
+        TextFormField(
+          onChanged: (val) {
+            if (label == "Email") {
+              email = val;
+              print(email);
+            } else {
+              password = val;
+              print(password);
+            }
+          },
           obscureText: obscureText,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
