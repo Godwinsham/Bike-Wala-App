@@ -79,7 +79,7 @@ class _ServiceCodeState extends State<ServiceCode> {
                   width: 200,
                    child: Column(
                     children: [ 
-                      CheckboxGroup(labels: <String>[widget.repair.offers],   onSelected: (List<String> checked) => print(checked.toString()))
+                      CheckboxGroup(labels: <String>[widget.repair.offers], onSelected: (List<String> checked) => print(checked.toString()))
                      ],
                 ),
                    /*children: [

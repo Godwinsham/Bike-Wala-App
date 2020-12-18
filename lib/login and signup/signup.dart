@@ -5,7 +5,14 @@ import 'package:flutter/material.dart';
 import 'FadeAnimation.dart';
 
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  @override
+  _SignupPageState createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  String email,password,confirm;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,6 +122,17 @@ class SignupPage extends StatelessWidget {
         ),),
         SizedBox(height: 5,),
         TextField(
+           onChanged: (val) {
+            if (label == "Email") {
+              email = val;
+              print(email);
+            } else {
+              password = val;
+              print(password);
+              confirm = val;
+              print(confirm);
+            }
+          },
           obscureText: obscureText,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),

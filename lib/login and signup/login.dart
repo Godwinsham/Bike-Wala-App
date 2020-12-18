@@ -173,6 +173,7 @@ class _LoginPageState extends State<LoginPage> {
               print(password);
             }
           },
+          
           obscureText: obscureText,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
