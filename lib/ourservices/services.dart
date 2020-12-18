@@ -13,20 +13,20 @@ List<Repair> repairs = [
     id: 1,
     title: "Custom",
     image: "assets/images/Gen.png",
-    offers:('')
+    offers:('Custom')
   ),
 Repair(
     id: 4,
     title: "General",
     image: "assets/images/Custom.png",
-    offers:('')
+    offers:('General')
    
   ),
 Repair(
     id: 9,
     title: "Washing",
     image: "assets/images/Wash.png",
-    offers: (''),
-    description: ('Airwash')
+    offers: ('Washing'),
+   
     )
  ];

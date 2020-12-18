@@ -68,35 +68,44 @@ class _ServiceCodeState extends State<ServiceCode> {
             ),
 
             Positioned(
-                top: 0,
+               /* top: 0,
                 right: 0,
                 child: SizedBox(
                   height: 90,
+                  width: 200, */ bottom: 129.5,
+                right: 25,
+                child: SizedBox(
+                  height: 90,
                   width: 200,
-                  child: Column(
-                    children: [
+                   child: Column(
+                    children: [ 
+                      CheckboxGroup(labels: <String>[widget.repair.offers],   onSelected: (List<String> checked) => print(checked.toString()))
+                     ],
+                ),
+                   /*children: [
                       Text(
                         widget.repair.title,
                         style: TextStyle(fontSize: 30),
                         textAlign: TextAlign.center,
-                      ),
-                    ],
+                      ), SizedBox(width: 20.0), 
+                // ignore: missing_required_param
+                 
+                    ], */
                   ),
-                )),
+                ),
             Positioned(
                 bottom: 129.5,
                 right: 25,
                 child: SizedBox(
                   height: 90,
                   width: 200,
-                  child: Column(
+                 /* child: Column(
                     children: [ 
                       CheckboxGroup(labels: [widget.repair.offers])
-                    ],
+                    ], */
                   ),
-                )),
-            
-          ],
+                ),
+                ],
         ),
       ),
     );
